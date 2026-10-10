@@ -2,3 +2,5 @@ Bash-скрипт каждые 5 секунд дописывает в monitor.lo
 
 Запуск: ./script.sh, один снимок: ./script.sh --once, остановка: Ctrl+C
 
+
+ДЗ2: [описание](deploy/README.md).

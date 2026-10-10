@@ -1,0 +1,18 @@
+[Unit]
+Description=Resource monitor with HTTP access
+Requires=docker.service lab-storage.service
+After=docker.service lab-storage.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/my-sysadmin-scripts
+ExecStartPre=/usr/bin/mountpoint -q /mnt/logs
+ExecStartPre=/usr/bin/docker compose config --quiet
+ExecStart=/usr/bin/docker compose up --no-build --no-color --exit-code-from app
+ExecStop=/usr/bin/docker compose stop
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

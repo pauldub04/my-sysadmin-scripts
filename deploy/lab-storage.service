@@ -1,0 +1,13 @@
+[Unit]
+Description=Restore lab RAID and LVM
+After=local-fs.target
+RequiresMountsFor=/mnt/raid-lab
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/lab-storage.sh
+TimeoutStartSec=90
+
+[Install]
+WantedBy=multi-user.target
