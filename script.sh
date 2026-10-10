@@ -7,7 +7,7 @@ if (( $# > 1 )) || [[ -n ${1-} && ${1-} != --once ]]; then
     exit 2
 fi
 
-LOG_FILE="$(dirname -- "$0")/monitor.log" || exit 1
+LOG_FILE="${LOG_FILE:-$(dirname -- "$0")/monitor.log}" || exit 1
 trap 'echo "Stopped" >&2; exit 0' INT TERM
 
 snapshot() {

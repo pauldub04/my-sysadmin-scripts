@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    image: my-script
+    container_name: my-app
+    init: true
+    ports:
+      - "127.0.0.1:8080:8080"
+    stop_grace_period: 15s
+
